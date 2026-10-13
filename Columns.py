@@ -1,7 +1,13 @@
 import pandas as pd
 
-df = pd.read_csv(r"C:\Users\patri\Documents\Documentos Senac\Aulas\Analista de Dados\funcionarios.csv")
+df = pd.read_csv(r"C:\Users\patrick.araujo\Downloads\funcionarios.csv")
 
-df["lucro liquido"] = df["lucro"] - df["salario"]
+df["liquido"] = df["lucro"] - df["salario"]
+
+df["nome"] = df['nome'].str.upper()
+
+df['Lucro positivo'] = df['liquido'].apply(lambda x: "Lucro positivo" if x > 0 else "Lucro Negativo")
+
+df = df.rename(columns={'liquido': 'lucro liquido'})
 
 print(df)
