@@ -6,7 +6,7 @@
 
 import pandas as pd
 
-df = pd.read_csv(r"C:\Users\patrick.araujo\Downloads\funcionarios - Null.csv")
+df = pd.read_csv(r"C:\Users\patrick.loureiro\Documents\Aulas\funcionarios - Null.csv")
 
 df_dep_preenchido = df.copy()
 

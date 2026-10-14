@@ -9,15 +9,23 @@ df = pd.DataFrame({
 # Média de vendas por categoria
 df.groupby('categoria')['vendas'].mean()
 
+
+
 # Soma por categoria (todas as colunas numéricas)
 df.groupby('categoria').sum()
 
+
+
 # Agrupar por multiplas colunas
-df.groupby(['categoria', 'outra_coluna'])['vendas'].sum()
+df.groupby(['categoria', 'quantidade'])['vendas'].sum()
 
-print(df)
 
+
+#Todas as operações na coluna vendas agrupadas pela coluna categoria
 df.groupby('categoria')['vendas'].agg(['sum', 'mean', 'max', 'count'])
+
+print(df.groupby('categoria')['vendas'].agg(['sum', 'mean', 'max', 'count']))
+
 
 # Ou com nomes personalizados
 df.groupby('categoria').agg(
