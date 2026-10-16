@@ -9,39 +9,46 @@ df = pd.DataFrame({
 # Média de vendas por categoria
 df.groupby('categoria')['vendas'].mean()
 
+print(df)
+print("\n")
 
 
 # Soma por categoria (todas as colunas numéricas)
 df.groupby('categoria').sum()
 
-
+#print(df.groupby('categoria').sum())
 
 # Agrupar por multiplas colunas
 df.groupby(['categoria', 'quantidade'])['vendas'].sum()
+
+#print(df.groupby(['categoria', 'quantidade'])['vendas'].sum())
 
 
 
 #Todas as operações na coluna vendas agrupadas pela coluna categoria
 df.groupby('categoria')['vendas'].agg(['sum', 'mean', 'max', 'count'])
 
-print(df.groupby('categoria')['vendas'].agg(['sum', 'mean', 'max', 'count']))
+#print(df.groupby('categoria')['vendas'].agg(['sum', 'mean', 'max', 'count']))
 
 
 # Ou com nomes personalizados
-df.groupby('categoria').agg(
+print(df.groupby('categoria').agg(
     total_vendas=('vendas', 'sum'),
     media_vendas=('vendas', 'mean'),
     qtd_registros=('vendas', 'count')
-)
+))
+
+
+#print(df.groupby('categoria')['vendas'].max())
 
 
 
 
 
-""" df = pd.read_csv(r"")
+df = pd.read_csv(r"C:\Users\patrick.loureiro\Documents\Aulas\funcionarios.csv")
 
 departamento = df.groupby("departamento").count()
 departamento = df.groupby("departamento").mean(numeric_only=True)
 departamento = df.groupby("departamento").agg({'salario': ["mean", "max","count","sum"], 'lucro': ["mean", "max","count","sum"]})
 
-print(departamento) """
+print(departamento)
